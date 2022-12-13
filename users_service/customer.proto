@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package protos;
 
+option go_package="genproto/users_service";
+
 service CustomerService {
     rpc CreateCustomer(Customer) returns (Customer);
     rpc UpdateCustomer(Customer) returns (Customer);
