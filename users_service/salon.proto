@@ -2,7 +2,9 @@ syntax = "proto3";
 
 package protos;
 
-import "protos/customer.proto";
+option go_package="genproto/users_service";
+
+import "barber_protos/users_service/customer.proto";
 
 service SalonService {
     rpc CreateSalon(Salon) returns (Salon);
