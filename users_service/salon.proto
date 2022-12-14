@@ -10,10 +10,8 @@ service SalonService {
     rpc CreateSalon(Salon) returns (Salon);
     rpc UpdateSalon(Salon) returns (Salon);
     rpc GetSalonByID(ID) returns (Salon);
-    rpc GetListSalons(GetSalonsParams) returns (AllSalons);
+    rpc GetListSalons(GetListParams) returns (AllSalons);
     rpc DeleteSalon(ID) returns (Empty);
-
-
 }
 
 message Salon {
@@ -31,12 +29,6 @@ message Salon {
     string created_at = 12;
     string updated_at = 13;
     string deleted_at = 14;
-}
-
-message GetSalonsParams {
-	int64 page = 1;
-	int64 limit = 2;
-	string search = 3;
 }
 
 message AllSalons {

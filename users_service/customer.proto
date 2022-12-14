@@ -8,7 +8,7 @@ service CustomerService {
     rpc CreateCustomer(Customer) returns (Customer);
     rpc UpdateCustomer(Customer) returns (Customer);
     rpc GetCustomerByID(ID) returns (Customer);
-    rpc GetListCustomers(GetCustomerParams) returns (AllCustomers);
+    rpc GetListCustomers(GetListParams) returns (AllCustomers);
     rpc DeleteCustomer(ID) returns (Empty);
     rpc GetCustomerByEmail(Email) returns (Customer);
     rpc UpdateCustomerPassword(UpdateCustomerPasswordRequest) returns (Empty);
@@ -28,7 +28,7 @@ message AllCustomers {
     int64 count = 2;
 }
 
-message GetCustomerParams{
+message GetListParams{
     int64 page = 1;
     int64 limit = 2;
     string search =3;
