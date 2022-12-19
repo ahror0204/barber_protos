@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+package protos;
+
+option go_package="genproto/users_service";
+
+import "barber_protos/users_service/customer.proto";
+
+service StaffAuthService {
+    rpc StaffRegister(StaffRegisterRequest) returns (Empty) {}
+    rpc StaffVerify(VerifyStaffRegisterRequest) returns (StaffAuthResponse) {}
+    rpc StaffLogin(StaffLoginRequest) returns (StaffAuthResponse) {}
+    // rpc VerifyToken(VerifyTokenRequest) returns (AuthPayload) {}
+    rpc StaffForgotPassword(Email) returns (Empty) {}
+    rpc VerifyStaffForgotPassword(VerifyStaffRegisterRequest) returns (StaffAuthResponse) {}
+    rpc UpdateStaffPassword(UpdatePasswordRequest) returns (Empty) {}
+}
+
+message StaffRegisterRequest {
+    string salon_id = 1;
+    string first_name = 2;
+    string last_name = 3;
+    string phone_number = 4;
+    string email = 5;
+    string user_name = 6;
+    string password = 7;
+    string type = 8;
+    string image_url = 9;
+}
+
+message VerifyStaffRegisterRequest {
+    string email = 1;
+    string code = 2;
+}
+
+message StaffAuthResponse {
+    string id = 1;
+    string salon_id = 2;
+	string first_name = 3;
+	string last_name = 4;
+	string email = 5;
+	string username = 6;
+	string type = 7;
+	string created_at = 8;
+	string access_token = 9;
+}
+
+message StaffLoginRequest {
+    string email    = 1;
+    string password =  2;
+}
+

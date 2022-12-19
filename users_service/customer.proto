@@ -11,10 +11,10 @@ service CustomerService {
     rpc GetListCustomers(GetListParams) returns (AllCustomers);
     rpc DeleteCustomer(ID) returns (Empty);
     rpc GetCustomerByEmail(Email) returns (Customer);
-    rpc UpdateCustomerPassword(UpdateCustomerPasswordRequest) returns (Empty);
+    rpc UpdateCustomerPassword(UpdatePasswordRequest) returns (Empty);
 }
 
-message UpdateCustomerPasswordRequest{
+message UpdatePasswordRequest{
     string ID = 1;
     string Password = 2; 
 }
@@ -22,6 +22,10 @@ message UpdateCustomerPasswordRequest{
 message Email {
     string email = 1;
 }
+
+message Password {
+    string password = 1;
+} 
 
 message AllCustomers {
     repeated Customer customers = 1;
