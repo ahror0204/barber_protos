@@ -12,6 +12,8 @@ service StaffService{
     rpc GetStaffByID(ID) returns (Staff);
     rpc GetListStaff(GetListParams) returns (ListStaff);
     rpc DeleteStaff(ID) returns (Empty);
+    rpc GetStaffByEmail(Email) returns (Customer);
+    rpc UpdateStaffPassword(UpdatePasswordRequest) returns (Empty);
 }
 
 message Staff {
